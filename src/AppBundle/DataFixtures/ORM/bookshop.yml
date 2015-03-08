@@ -1,0 +1,10 @@
+AppBundle\Entity\Author:
+    author{1..10}:
+        forename: <firstName()>
+        surname: <lastName()>
+
+AppBundle\Entity\Book:
+    book{1..100}:
+        title: <sentence()>
+        synopsis: <paragraph()>
+        pages: <numberBetween(50, 500)>
