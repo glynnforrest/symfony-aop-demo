@@ -13,7 +13,9 @@ class BookshopController extends Controller
 {
     public function listAction()
     {
-        $books = [];
+        $books = $this->get('doctrine')
+            ->getRepository('AppBundle:Book')
+            ->findLatest();
 
         return $this->render(
             'AppBundle:Bookshop:list.html.twig', [
