@@ -1,0 +1,27 @@
+services:
+    book_metadata:
+        class: Doctrine\ORM\Mapping\ClassMetadata
+        factory_service: doctrine.orm.entity_manager
+        factory_method: getClassMetadata
+        arguments:
+          - AppBundle\Entity\Book
+
+    #JmsAopBundle can't use services with factory classes, so
+    #book_repo has to be registered explicitly
+    book_repo:
+        class: AppBundle\Repository\BookRepository
+        arguments:
+          - @doctrine.orm.entity_manager
+          - @book_metadata
+
+    #JMS pointcuts
+    book_repo_pointcut:
+        class: AppBundle\Pointcut\BookRepositoryPointcut
+        tags:
+            - { name: jms_aop.pointcut, interceptor: logging_interceptor }
+
+    #JMS interceptors
+    logging_interceptor:
+        class: AppBundle\Interceptor\LoggingInterceptor
+        arguments:
+            - @logger
