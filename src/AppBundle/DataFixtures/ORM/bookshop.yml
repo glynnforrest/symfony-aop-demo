@@ -8,3 +8,4 @@ AppBundle\Entity\Book:
         title: <sentence()>
         synopsis: <paragraph()>
         pages: <numberBetween(50, 500)>
+        publishedAt: <DateTimeThisCentury()>

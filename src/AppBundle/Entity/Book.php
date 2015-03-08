@@ -2,6 +2,8 @@
 
 namespace AppBundle\Entity;
 
+use \DateTime;
+
 /**
  * Book
  */
@@ -26,6 +28,11 @@ class Book
      * @var integer
      */
     private $pages;
+
+    /**
+     * @var \DateTime
+     */
+    private $publishedAt;
 
     /**
      * Get id
@@ -104,5 +111,28 @@ class Book
     public function getPages()
     {
         return $this->pages;
+    }
+
+    /**
+     * Set publishedAt
+     *
+     * @param  \DateTime $publishedAt
+     * @return Book
+     */
+    public function setPublishedAt(DateTime $publishedAt)
+    {
+        $this->publishedAt = $publishedAt;
+
+        return $this;
+    }
+
+    /**
+     * Get publishedAt
+     *
+     * @return \DateTime
+     */
+    public function getPublishedAt()
+    {
+        return $this->publishedAt;
     }
 }

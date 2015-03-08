@@ -1,4 +1,5 @@
 AppBundle\Entity\Book:
+    repositoryClass: AppBundle\Repository\BookRepository
     type: entity
     table: book
     id:
@@ -15,4 +16,6 @@ AppBundle\Entity\Book:
             type: text
         pages:
             type: integer
+        publishedAt:
+            type: datetime
     lifecycleCallbacks: {  }
