@@ -1,0 +1,7 @@
+index:
+    pattern: /
+    defaults: {_controller: 'AppBundle:Index:index' }
+
+bookshop_list:
+    pattern: /books
+    defaults: { _controller : 'AppBundle:Bookshop:list' }
