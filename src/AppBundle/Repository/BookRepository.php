@@ -3,6 +3,7 @@
 namespace AppBundle\Repository;
 
 use Doctrine\ORM\EntityRepository;
+use AppBundle\Annotation\Mischief;
 
 /**
  * BookRepository
@@ -23,6 +24,9 @@ class BookRepository extends EntityRepository
         return $query->getResult();
     }
 
+    /**
+     * @Mischief
+     */
     public function findOldest($limit = 20)
     {
         $query = $this->getEntityManager()
