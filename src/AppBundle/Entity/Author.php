@@ -2,7 +2,6 @@
 
 namespace AppBundle\Entity;
 
-use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Author
@@ -24,11 +23,10 @@ class Author
      */
     private $surname;
 
-
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -38,7 +36,7 @@ class Author
     /**
      * Set forename
      *
-     * @param string $forename
+     * @param  string $forename
      * @return Author
      */
     public function setForename($forename)
@@ -51,7 +49,7 @@ class Author
     /**
      * Get forename
      *
-     * @return string 
+     * @return string
      */
     public function getForename()
     {
@@ -61,7 +59,7 @@ class Author
     /**
      * Set surname
      *
-     * @param string $surname
+     * @param  string $surname
      * @return Author
      */
     public function setSurname($surname)
@@ -74,10 +72,15 @@ class Author
     /**
      * Get surname
      *
-     * @return string 
+     * @return string
      */
     public function getSurname()
     {
         return $this->surname;
+    }
+
+    public function getFullname()
+    {
+        return $this->forename.' '.$this->surname;
     }
 }
