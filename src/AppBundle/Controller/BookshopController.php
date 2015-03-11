@@ -11,9 +11,20 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
  **/
 class BookshopController extends Controller
 {
-    public function listAction()
+    public function latestAction()
     {
         $books = $this->get('book_repo')->findLatest();
+
+        return $this->render(
+            'AppBundle:Bookshop:list.html.twig', [
+                'books' => $books
+            ]
+        );
+    }
+
+    public function oldestAction()
+    {
+        $books = $this->get('book_repo')->findOldest();
 
         return $this->render(
             'AppBundle:Bookshop:list.html.twig', [

@@ -22,4 +22,15 @@ class BookRepository extends EntityRepository
 
         return $query->getResult();
     }
+
+    public function findOldest($limit = 20)
+    {
+        $query = $this->getEntityManager()
+                      ->createQuery(
+                          'SELECT b from AppBundle:Book b ORDER BY b.publishedAt ASC'
+                      );
+        $query->setMaxResults($limit);
+
+        return $query->getResult();
+    }
 }
