@@ -20,8 +20,18 @@ services:
         tags:
             - { name: jms_aop.pointcut, interceptor: logging_interceptor }
 
+    mischief_pointcut:
+        class: AppBundle\Pointcut\MischiefPointcut
+        arguments:
+            - @annotation_reader
+        tags:
+            - { name: jms_aop.pointcut, interceptor: mischief_interceptor }
+
     #JMS interceptors
     logging_interceptor:
         class: AppBundle\Interceptor\LoggingInterceptor
         arguments:
             - @logger
+
+    mischief_interceptor:
+        class: AppBundle\Interceptor\MischiefInterceptor
