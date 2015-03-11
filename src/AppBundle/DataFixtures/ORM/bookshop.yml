@@ -9,3 +9,4 @@ AppBundle\Entity\Book:
         synopsis: <paragraph()>
         pages: <numberBetween(50, 500)>
         publishedAt: <DateTimeThisCentury()>
+        author: @author*

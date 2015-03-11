@@ -18,4 +18,11 @@ AppBundle\Entity\Book:
             type: integer
         publishedAt:
             type: datetime
+    manyToOne:
+      author:
+        targetEntity: Author
+        joinColumn:
+          name: authorId
+          referencedColumnName: id
+          nullable: false
     lifecycleCallbacks: {  }

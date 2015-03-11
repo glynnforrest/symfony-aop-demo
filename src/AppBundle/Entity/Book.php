@@ -2,7 +2,7 @@
 
 namespace AppBundle\Entity;
 
-use \DateTime;
+use DateTime;
 
 /**
  * Book
@@ -33,6 +33,11 @@ class Book
      * @var \DateTime
      */
     private $publishedAt;
+
+    /**
+     * @var Author
+     */
+    private $author;
 
     /**
      * Get id
@@ -134,5 +139,24 @@ class Book
     public function getPublishedAt()
     {
         return $this->publishedAt;
+    }
+
+    /**
+     * @param Author
+     * @return Book
+     */
+    public function setAuthor(Author $author)
+    {
+        $this->author = $author;
+
+        return $this;
+    }
+
+    /**
+     * @return Author
+     */
+    public function getAuthor()
+    {
+        return $this->author;
     }
 }
