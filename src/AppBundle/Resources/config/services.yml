@@ -35,3 +35,6 @@ services:
 
     mischief_interceptor:
         class: AppBundle\Interceptor\MischiefInterceptor
+
+    weekends_only_interceptor:
+        class: AppBundle\Interceptor\WeekendsOnlyInterceptor
