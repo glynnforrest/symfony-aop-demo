@@ -27,6 +27,13 @@ services:
         tags:
             - { name: jms_aop.pointcut, interceptor: mischief_interceptor }
 
+    weekends_only_pointcut:
+        class: AppBundle\Pointcut\WeekendsOnlyPointcut
+        arguments:
+            - @annotation_reader
+        tags:
+            - { name: jms_aop.pointcut, interceptor: weekends_only_interceptor }
+
     #JMS interceptors
     logging_interceptor:
         class: AppBundle\Interceptor\LoggingInterceptor
