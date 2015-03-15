@@ -22,7 +22,10 @@ class LoggingInterceptor implements MethodInterceptorInterface
 
     public function intercept(MethodInvocation $invocation)
     {
-        $this->logger->debug(sprintf('Before method %s', $invocation));
+        $message = sprintf('Before method %s()', $invocation);
+        $this->logger->debug($message);
+        \Symfony\Component\VarDumper\VarDumper::dump($message);
+
         return $invocation->proceed();
     }
 
