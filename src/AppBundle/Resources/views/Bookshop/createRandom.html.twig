@@ -1,0 +1,22 @@
+{% extends 'AppBundle::base.html.twig' %}
+
+{% block content %}
+    <h1>Created random book</h1>
+    <table class="table">
+        <tbody>
+            <tr>
+                <td>Title</td>
+                <td>{{ book.title }}</td>
+            </tr>
+
+            <tr>
+                <td>Author</td>
+                <td>{{ book.author.fullname }}</td>
+            </tr>
+            <tr>
+                <td>Date Published</td>
+                <td>{{ book.publishedAt.format('j M Y') }}</td>
+            </tr>
+        </tbody>
+    </table>
+{% endblock %}

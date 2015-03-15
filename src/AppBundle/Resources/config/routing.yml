@@ -9,3 +9,7 @@ bookshop_latest:
 bookshop_oldest:
     pattern: /books/oldest
     defaults: { _controller : 'AppBundle:Bookshop:oldest' }
+
+bookshop_create_random:
+    pattern: /books/createRandom
+    defaults: { _controller : 'AppBundle:Bookshop:createRandom' }

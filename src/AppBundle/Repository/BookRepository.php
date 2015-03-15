@@ -4,6 +4,8 @@ namespace AppBundle\Repository;
 
 use Doctrine\ORM\EntityRepository;
 use AppBundle\Annotation\Mischief;
+use AppBundle\Annotation\WeekendsOnly;
+use AppBundle\Entity\Book;
 
 /**
  * BookRepository
@@ -17,7 +19,7 @@ class BookRepository extends EntityRepository
     {
         $query = $this->getEntityManager()
                       ->createQuery(
-                          'SELECT b from AppBundle:Book b ORDER BY b.publishedAt DESC'
+                          'SELECT b FROM AppBundle:Book b ORDER BY b.publishedAt DESC'
                       );
         $query->setMaxResults($limit);
 
@@ -31,10 +33,32 @@ class BookRepository extends EntityRepository
     {
         $query = $this->getEntityManager()
                       ->createQuery(
-                          'SELECT b from AppBundle:Book b ORDER BY b.publishedAt ASC'
+                          'SELECT b FROM AppBundle:Book b ORDER BY b.publishedAt ASC'
                       );
         $query->setMaxResults($limit);
 
         return $query->getResult();
+    }
+
+    public function createRandom()
+    {
+        $faker = \Faker\Factory::create();
+        $em = $this->getEntityManager();
+
+        $book = new Book();
+        $book->setTitle($faker->sentence);
+        $book->setSynopsis($faker->paragraph);
+        $book->setPages(rand(50, 500));
+        $book->setPublishedAt($faker->dateTimeThisCentury);
+
+        $randomAuthor = $em->createQuery('SELECT a FROM AppBundle:Author a')
+                           ->setMaxResults(1)
+                           ->getSingleResult();
+
+        $book->setAuthor($randomAuthor);
+        $em->persist($book);
+        $em->flush();
+
+        return $book;
     }
 }

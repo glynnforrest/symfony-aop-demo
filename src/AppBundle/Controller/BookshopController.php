@@ -32,4 +32,16 @@ class BookshopController extends Controller
             ]
         );
     }
+
+    public function createRandomAction()
+    {
+        $book = $this->get('book_repo')->createRandom();
+
+        return $this->render(
+            'AppBundle:Bookshop:createRandom.html.twig', [
+                'book' => $book
+            ]
+        );
+    }
+
 }
