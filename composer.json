@@ -21,7 +21,8 @@
         "incenteev/composer-parameter-handler": "~2.0",
         "hautelook/alice-bundle": "0.2.*",
         "doctrine/doctrine-fixtures-bundle": "~2.2",
-        "jms/aop-bundle": "~1.0"
+        "jms/aop-bundle": "~1.0",
+        "lisachenko/go-aop-php": "0.6.*"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3"
