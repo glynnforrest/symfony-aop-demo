@@ -1,4 +1,9 @@
 {% extends 'AppBundle::base.html.twig' %}
 
 {% block content %}
+    <ul>
+        <li><a href="{{ path('bookshop_latest') }}">Latest books</a></li>
+        <li><a href="{{ path('bookshop_oldest') }}">Oldest books</a></li>
+        <li><a href="{{ path('bookshop_create_random') }}">Create random book</a></li>
+    </ul>
 {% endblock %}
