@@ -25,7 +25,7 @@ class WeekendsOnlyPointcut implements PointcutInterface
 
     public function matchesMethod(\ReflectionMethod $method)
     {
-        //match methods with the Mischief annotation
+        //match methods with the WeekendsOnly annotation
         return null !== $this->reader->getMethodAnnotation($method, 'AppBundle\Annotation\WeekendsOnly');
     }
 }

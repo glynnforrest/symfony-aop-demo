@@ -22,7 +22,12 @@ class SayHelloAspect implements Aspect
      */
     public function beforeMethodExecution(MethodInvocation $invocation)
     {
-        $message = 'Hello from Go AOP before '.get_class($invocation->getThis()).$invocation->getMethod()->name;
+        $message = sprintf(
+            'Hello from GO AOP before %s->%s()',
+            get_class($invocation->getThis()),
+            $invocation->getMethod()->name
+        );
+
         \Symfony\Component\VarDumper\VarDumper::dump($message);
     }
 }
