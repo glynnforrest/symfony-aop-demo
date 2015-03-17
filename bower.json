@@ -1,0 +1,13 @@
+{
+  "name": "symfony-aop-demo",
+  "version": "0.0.0",
+  "homepage": "https://github.com/glynnforrest/symfony-aop-demo",
+  "authors": [
+    "Glynn Forrest <me@glynnforrest.com>"
+  ],
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "foundation": "~5.5.1"
+  }
+}
