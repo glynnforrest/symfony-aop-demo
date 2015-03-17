@@ -18,7 +18,21 @@ if (isset($_SERVER['HTTP_CLIENT_IP'])
 }
 
 $loader = require_once __DIR__.'/../app/bootstrap.php.cache';
-Debug::enable();
+
+// Debug component seems to break GO-AOP
+// Debug::enable();
+
+// register GO AOP
+require_once __DIR__.'/../app/ApplicationAspectKernel.php';
+
+$applicationAspectKernel = ApplicationAspectKernel::getInstance();
+$applicationAspectKernel->init([
+    'debug' => true,
+    'cacheDir' => __DIR__.'/../app/cache/dev/go-aop',
+    'includePaths' => [
+        __DIR__.'/../src',
+    ],
+]);
 
 require_once __DIR__.'/../app/AppKernel.php';
 
