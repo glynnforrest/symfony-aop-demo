@@ -5,6 +5,7 @@ namespace AppBundle\Repository;
 use Doctrine\ORM\EntityRepository;
 use AppBundle\Annotation\Mischief;
 use AppBundle\Annotation\WeekendsOnly;
+use AppBundle\Annotation\SayHello;
 use AppBundle\Entity\Book;
 
 /**
@@ -40,6 +41,9 @@ class BookRepository extends EntityRepository
         return $query->getResult();
     }
 
+    /**
+     * @SayHello
+     */
     public function createRandom()
     {
         $faker = \Faker\Factory::create();
