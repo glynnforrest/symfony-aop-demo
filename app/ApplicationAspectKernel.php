@@ -2,7 +2,7 @@
 
 use Go\Core\AspectKernel;
 use Go\Core\AspectContainer;
-use AppBundle\Aspect\CachingAspect;
+use AppBundle\Aspect\SayHelloAspect;
 
 /**
  * ApplicationAspectKernel
@@ -20,5 +20,6 @@ class ApplicationAspectKernel extends AspectKernel
      */
     protected function configureAop(AspectContainer $container)
     {
+        $container->registerAspect(new SayHelloAspect());
     }
 }
