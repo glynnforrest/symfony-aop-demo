@@ -30,4 +30,13 @@ class SayHelloAspect implements Aspect
 
         \Symfony\Component\VarDumper\VarDumper::dump($message);
     }
+
+    /*
+     * other @Before examples
+     * @Before("execution(public AppBundle\Repository\BookRepository->findOldest(*))")
+     * @Before("execution(public AppBundle\Repository\BookRepository->*(*))")
+     * @Before("execution(public AppBundle\Repository\*->*(*))")
+     * @Before("execution(public Doctrine\ORM\EntityManager->*(*))")
+     * @Before("execution(protected Doctrine\ORM\*->*(*))")
+     */
 }

@@ -31,6 +31,8 @@ $applicationAspectKernel->init([
     'cacheDir' => __DIR__.'/../app/cache/dev/go-aop',
     'includePaths' => [
         __DIR__.'/../src',
+        //to advise vendor code
+        // __DIR__.'/../vendor',
     ],
 ]);
 
